@@ -5,7 +5,7 @@ API for retrieval of catchment data for land cover and livestock
 ## Installation
 
 ```bash
-$ pip install catchment_data_api
+pip install "cathment_data_api@git+https://github.com/colmduff/cathment_data_api.git@main" 
 ```
 
 ## Usage
