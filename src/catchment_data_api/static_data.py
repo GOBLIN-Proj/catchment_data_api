@@ -8,6 +8,7 @@ class StaticData:
         self.baseline_year = self.catchment_config.get("baseline_year", {})
         self.herd_relation_dict = self.catchment_config.get("herd_relation_dict", {})
         self.ewe_split_dict = self.catchment_config.get("ewe_split_dict", {})
+        self.ewe_proportion = self.catchment_config.get("ewe_proportion", {})
 
 
     def get_config_data(self, config_file):
@@ -52,3 +53,13 @@ class StaticData:
             dict: The ewe split dictionary.
         """
         return self.ewe_split_dict
+
+
+    def get_global_ewe_prop(self):
+        """
+        Retrieves the ewe proportion dict.
+
+        Returns:
+            dict: The ewe proportion dictionary.
+        """
+        return self.ewe_proportion

@@ -79,6 +79,7 @@ class CatchmentDataAPI:
         # Check if the specified catchment exists and create a DataFrame
         if catchment in grouped_data.index:
             sheep_population = int(grouped_data.loc[catchment, 'Sheep pop'])
+            ewe_prop = self.static_data.get_global_ewe_prop()
             upland_ewes_split = self.static_data.get_ewe_split_dict()['Upland ewes']
             lowland_ewes_split = self.static_data.get_ewe_split_dict()['Lowland ewes']
 
@@ -86,8 +87,8 @@ class CatchmentDataAPI:
                 'Catchment': [catchment],
                 'dairy_cows': [int(grouped_data.loc[catchment, 'Dairy pop'])],
                 'suckler_cows': [int(grouped_data.loc[catchment, 'Beef pop'])],
-                'Upland ewes': [int(sheep_population * upland_ewes_split)],
-                'Lowland ewes': [int(sheep_population * lowland_ewes_split)]
+                'Upland ewes': [int((sheep_population * ewe_prop) * upland_ewes_split)],
+                'Lowland ewes': [int((sheep_population * ewe_prop)* lowland_ewes_split)]
             })
         else:
 

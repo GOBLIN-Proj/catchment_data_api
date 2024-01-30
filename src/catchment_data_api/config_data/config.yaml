@@ -34,3 +34,5 @@ herd_relation_dict:
 ewe_split_dict:
   Lowland ewes: 0.8
   Upland ewes: 0.2
+
+ewe_proportion: 0.02
