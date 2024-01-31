@@ -102,6 +102,16 @@ class CatchmentDataAPI:
         df = self.data_manager.get_catchment_forest_data()
         return df
     
+    def get_catchment_forest_data_by_catchment_name(self, catchment_name):
+            
+        catchment = self.format_catchment_name(catchment_name)
+
+        df = self.data_manager.get_catchment_forest_data()
+
+        catchment_data = df[df['catchment'] == catchment]
+
+        return catchment_data
+    
 
     def get_catchment_grass_data(self):
         df = self.data_manager.get_catchment_grass_data()
@@ -112,16 +122,47 @@ class CatchmentDataAPI:
         df = self.data_manager.get_catchment_cultivated_data()
         return df
     
+    def get_catchment_cultivated_data_by_catchment_name(self, catchment_name):
+                
+        catchment = self.format_catchment_name(catchment_name)
+
+        df = self.data_manager.get_catchment_cultivated_data()
+
+        catchment_data = df[df['catchment'] == catchment]
+
+        return catchment_data
+    
 
     def get_catchment_peat_data(self):
         df = self.data_manager.get_catchment_peat_data()
-        return df   
+        return df 
     
+    
+    def get_catchment_peat_data_by_catchment_name(self, catchment_name):
+                        
+        catchment = self.format_catchment_name(catchment_name)
+
+        df = self.data_manager.get_catchment_peat_data()
+
+        catchment_data = df[df['catchment'] == catchment]
+
+        return catchment_data   
+
 
     def get_catchment_lucas_data(self):
         df = self.data_manager.get_catchment_lucas_data()
         return df
     
+
+    def get_catchment_lucas_data_by_catchment_name(self, catchment_name):
+                                
+        catchment = self.format_catchment_name(catchment_name)
+
+        df = self.data_manager.get_catchment_lucas_data()
+
+        catchment_data = df[df['catchment'] == catchment]
+
+        return catchment_data
 
     def get_catchment_grass_in_use(self):
         df = self.data_manager.get_catchment_grass_data()

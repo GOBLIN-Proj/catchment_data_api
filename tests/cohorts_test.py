@@ -1,7 +1,7 @@
 from catchment_data_api.cohorts import Cohorts
 
 def main():
-    cohort = Cohorts("suir")
+    cohort = Cohorts("blackwater")
 
     print(cohort.cohorts)
 

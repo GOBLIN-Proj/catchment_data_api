@@ -6,7 +6,7 @@ def main():
 
     print(df.head())
 
-    df1 = api.get_catchment_livestock_data_by_catchment_name("ballyteigue Bannow")
+    df1 = api.get_catchment_livestock_data_by_catchment_name("blackwater")
 
     print(df1.head())
 
