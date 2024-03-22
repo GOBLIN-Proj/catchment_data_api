@@ -1,11 +1,14 @@
 # catchment_data_api
+[![license](https://img.shields.io/badge/License-MIT-red)](https://github.com/GOBLIN-Proj/cathment_data_api/blob/0.1.0/LICENSE)
+[![python](https://img.shields.io/badge/python-3.9-blue?logo=python&logoColor=white)](https://github.com/GOBLIN-Proj/cathment_data_api)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 API for retrieval of catchment data for land cover and livestock
 
 ## Installation
 
 ```bash
-pip install "cathment_data_api@git+https://github.com/colmduff/cathment_data_api.git@main" 
+pip install "cathment_data_api@git+https://github.com/GOBLIN-Proj/cathment_data_api.git@main" 
 ```
 
 ## Usage
