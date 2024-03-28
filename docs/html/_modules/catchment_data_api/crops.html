@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>catchment_data_api.crops &mdash; catchment_data_api  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            catchment_data_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">catchment_data_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">catchment_data_api.crops</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for catchment_data_api.crops</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Crops Module</span>
+<span class="sd">------------</span>
+
+<span class="sd">This module contains the Crops class, which is responsible for managing and calculating crop data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">catchment_data_api.catchment_data_api</span> <span class="kn">import</span> <span class="n">CatchmentDataAPI</span>
+
+<div class="viewcode-block" id="Crops">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/crops/index.html#catchment_data_api.crops.Crops">[docs]</a>
+<span class="k">class</span> <span class="nc">Crops</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to manage and calculate crop data within a specified catchment area.</span>
+
+<span class="sd">    This class utilizes LUCAS (Land Use and Coverage Area frame Survey) data and </span>
+<span class="sd">    cultivated land data to derive the area of different crops within a catchment.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        api (CatchmentDataAPI): An instance of the CatchmentDataAPI for accessing catchment data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span class="n">CatchmentDataAPI</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Crops._derive_crops">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/crops/index.html#catchment_data_api.crops.Crops._derive_crops">[docs]</a>
+    <span class="k">def</span> <span class="nf">_derive_crops</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">catchment</span><span class="p">):</span>
+<span class="w">       </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Derives crop data for a specified catchment based on LUCAS data and cultivated land data.</span>
+<span class="sd">        This method calculates the total area for each crop type within the catchment by utilizing</span>
+<span class="sd">        the proportion of each crop type from LUCAS data and the total cultivated land area.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            catchment (str): The name of the catchment area.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: A DataFrame containing the derived crop data for the catchment, including</span>
+<span class="sd">            the catchment name, crop types, and their respective areas in hectares.</span>
+<span class="sd">       &quot;&quot;&quot;</span>
+       <span class="n">lucas_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get_catchment_lucas_data_by_catchment_name</span><span class="p">(</span><span class="n">catchment</span><span class="p">)</span>
+       <span class="n">cultivated_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get_catchment_cultivated_data_by_catchment_name</span><span class="p">(</span><span class="n">catchment</span><span class="p">)</span>
+
+       <span class="c1">#Assume crops are mineral </span>
+       <span class="n">grouped_cultivated_df</span> <span class="o">=</span> <span class="n">cultivated_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;cover_type&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+       <span class="n">total_cultivated_land_area</span> <span class="o">=</span> <span class="n">grouped_cultivated_df</span><span class="p">[</span><span class="s1">&#39;total_hectares&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+       <span class="n">data</span> <span class="o">=</span><span class="p">[]</span>
+
+       <span class="k">for</span> <span class="n">crop</span> <span class="ow">in</span> <span class="n">lucas_df</span><span class="p">[</span><span class="s1">&#39;crop_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;catchment&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">format_catchment_name</span><span class="p">(</span><span class="n">catchment</span><span class="p">),</span>
+                <span class="s2">&quot;crop&quot;</span><span class="p">:</span><span class="n">crop</span><span class="p">,</span>
+                <span class="s2">&quot;area_ha&quot;</span><span class="p">:</span><span class="n">total_cultivated_land_area</span> <span class="o">*</span> <span class="n">lucas_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">lucas_df</span><span class="p">[</span><span class="s1">&#39;crop_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">crop</span><span class="p">][</span><span class="s1">&#39;crop_proportion&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="p">}</span>
+
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+       <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+    
+
+<div class="viewcode-block" id="Crops.get_catchment_crops">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/crops/index.html#catchment_data_api.crops.Crops.get_catchment_crops">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_catchment_crops</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">catchment</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Public method to retrieve the derived crop data for a specified catchment.</span>
+<span class="sd">        This method serves as an interface to access the calculated crop areas</span>
+<span class="sd">        and types within the catchment.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            catchment (str): The name of the catchment area.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: A DataFrame containing the derived crop data for the specified catchment.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_derive_crops</span><span class="p">(</span><span class="n">catchment</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">df</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Colm Duffy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

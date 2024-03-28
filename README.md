@@ -3,7 +3,8 @@
 [![python](https://img.shields.io/badge/python-3.9-blue?logo=python&logoColor=white)](https://github.com/GOBLIN-Proj/catchment_data_api)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-API for retrieval of catchment data for land cover and livestock
+API for retrieval of catchment data for land cover and livestock. The package uses data derived from the [National Landcover Map](https://www.tailte.ie/en/surveying/products/professional-mapping/national-land-cover-map/), 
+[the Teagasc Soils Map](https://www.teagasc.ie/environment/soil/soil-maps/) and [LUCAS crop map](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=LUCAS_-_Land_use_and_land_cover_survey).
 
 ## Installation
 
@@ -13,7 +14,30 @@ pip install "cathment_data_api@git+https://github.com/GOBLIN-Proj/catchment_data
 
 ## Usage
 
-- TODO
+```python 
+from catchment_data_api import catchment_data_api
+
+def main():
+    api = catchment_data_api.CatchmentDataAPI()
+    df = api.get_catchment_livestock_data()
+
+    print(df.head())
+
+    df1 = api.get_catchment_livestock_data_by_catchment_name("blackwater")
+
+    print(df1.head())
+
+    print(api.get_catchment_names())
+
+    df2 = api.get_catchment_livestock_total_pop_by_catchment_name("blackwater")
+
+    print(df2.head())
+
+
+
+if __name__ == "__main__":
+    main()
+```
 
 ## Contributing
 

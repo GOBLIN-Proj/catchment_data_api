@@ -1,0 +1,111 @@
+:py:mod:`catchment_data_api.database_manager`
+=============================================
+
+.. py:module:: catchment_data_api.database_manager
+
+.. autoapi-nested-parse::
+
+   Database Manager Module
+   -----------------------
+
+   This module contains the DataManager class, which is responsible for managing database connections and queries for the catchment data API.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   catchment_data_api.database_manager.DataManager
+
+
+
+
+.. py:class:: DataManager
+
+
+   A class to manage database connections and queries for the catchment data API.
+   It provides methods to access environmental and agricultural data stored in
+   a SQLite database.
+
+   .. attribute:: database_dir
+
+      The directory path where the database file is located.
+
+      :type: str
+
+   .. attribute:: engine
+
+      The SQLAlchemy engine instance for database connections.
+
+      :type: sqa.engine.base.Engine
+
+   .. py:method:: data_engine_creater()
+
+      Creates a SQLAlchemy engine for connecting to the SQLite database.
+
+      :returns: An engine instance connected to the SQLite database.
+      :rtype: sqa.engine.base.Engine
+
+
+   .. py:method:: get_national_herd_raw()
+
+      Retrieves raw national herd numbers from the database.
+
+      :returns: A DataFrame containing raw national herd numbers, indexed by cohorts.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_livestock_data()
+
+      Retrieves livestock data for catchments from the database.
+
+      :returns: A DataFrame containing livestock data for various catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_forest_data()
+
+      Retrieves forest data for catchments from the database.
+
+      :returns: A DataFrame containing forest data for various catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_grass_data()
+
+      Retrieves grassland data for catchments from the database.
+
+      :returns: A DataFrame containing grassland data for various catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_cultivated_data()
+
+      Retrieves cultivated land data for catchments from the database.
+
+      :returns: A DataFrame containing cultivated land data for various catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_peat_data()
+
+      Retrieves peatland data for catchments from the database.
+
+      :returns: A DataFrame containing peatland data for various catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_lucas_data()
+
+      Retrieves LUCAS data for catchments from the database.
+
+      :returns: A DataFrame containing LUCAS survey data for various catchments.
+      :rtype: pandas.DataFrame
+
+
+

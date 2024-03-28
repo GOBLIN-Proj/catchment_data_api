@@ -1,0 +1,36 @@
+:py:mod:`catchment_data_api`
+============================
+
+.. py:module:: catchment_data_api
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   config_data/index.rst
+   database/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   catchment_data_api/index.rst
+   cohorts/index.rst
+   crops/index.rst
+   database_manager/index.rst
+   static_data/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+
+   
+

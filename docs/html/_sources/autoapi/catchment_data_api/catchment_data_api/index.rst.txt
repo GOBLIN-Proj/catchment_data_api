@@ -1,0 +1,241 @@
+:py:mod:`catchment_data_api.catchment_data_api`
+===============================================
+
+.. py:module:: catchment_data_api.catchment_data_api
+
+.. autoapi-nested-parse::
+
+   Catchment Data API
+   ------------------
+   A Python package for interfacing with various catchment-related data. This includes accessing, formatting,
+   and aggregating data related to livestock, forests, cultivated areas, peat, and LUCAS survey data within different catchment areas.
+
+   This module provides a class, CatchmentDataAPI, that acts as an interface to the catchment data.
+   It allows users to retrieve data for livestock, forests, cultivated areas, peat, and LUCAS survey data for all catchments
+   or for a specific catchment.
+
+   The class also provides methods to calculate the total population of livestock by type for a specified catchment
+   and to format catchment names for consistency.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   catchment_data_api.catchment_data_api.CatchmentDataAPI
+
+
+
+
+.. py:class:: CatchmentDataAPI
+
+
+   A class to interface with various catchment-related data. This includes
+   accessing, formatting, and aggregating data related to livestock, forests,
+   cultivated areas, peat, and LUCAS survey data within different catchment areas.
+
+   .. attribute:: data_manager
+
+      An instance of DataManager for database operations.
+
+      :type: DataManager
+
+   .. attribute:: static_data
+
+      An instance of StaticData for accessing static, reference data.
+
+      :type: StaticData
+
+   .. attribute:: known_catchments
+
+      A list of known catchment names retrieved from the database.
+
+      :type: list
+
+   .. py:method:: normalize_text(text)
+
+      Normalizes a given text string by converting to lowercase, removing special characters,
+      and replacing '&' with 'and'.
+
+      :param text: The text to normalize.
+      :type text: str
+
+      :returns: The normalized text.
+      :rtype: str
+
+
+   .. py:method:: format_catchment_name(catchment_name)
+
+      Formats a catchment name by finding the best match among known catchments based on
+      the overlap of words after normalization.
+
+      :param catchment_name: The catchment name to format.
+      :type catchment_name: str
+
+      :returns: The best matching catchment name or the original name if no match is found.
+      :rtype: str
+
+
+   .. py:method:: get_catchment_names()
+
+      Retrieves a list of unique catchment names from the database.
+
+      :returns: An array of unique catchment names.
+      :rtype: numpy.ndarray
+
+
+   .. py:method:: get_national_herd_raw()
+
+      Retrieves the raw national herd data from the database.
+
+      :returns: A DataFrame containing the raw national herd data.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_livestock_data()
+
+      Retrieves livestock data for all catchments from the database.
+
+      :returns: A DataFrame containing livestock data for all catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_livestock_data_by_catchment_name(catchment_name)
+
+      Retrieves livestock data for a specific catchment, identified by its name.
+
+      :param catchment_name: The name of the catchment for which livestock data is requested.
+      :type catchment_name: str
+
+      :returns: A DataFrame containing livestock data for the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_livestock_total_pop_by_catchment_name(catchment_name)
+
+      Calculates the total population of livestock by type for a specified catchment.
+
+      :param catchment_name: The name of the catchment for which total livestock population is requested.
+      :type catchment_name: str
+
+      :returns: A DataFrame with the total population of different livestock types in the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_forest_data()
+
+      Retrieves forest data for all catchments from the database.
+
+      :returns: A DataFrame containing forest data for all catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_forest_data_by_catchment_name(catchment_name)
+
+      Retrieves forest data for a specific catchment, identified by its name.
+
+      :param catchment_name: The name of the catchment for which forest data is requested.
+      :type catchment_name: str
+
+      :returns: A DataFrame containing forest data for the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_grass_data()
+
+      Retrieves grassland data for all catchments from the database.
+
+      :returns: A DataFrame containing grassland data for all catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_cultivated_data()
+
+      Retrieves cultivated land data for all catchments from the database.
+
+      :returns: A DataFrame containing cultivated land data for all catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_cultivated_data_by_catchment_name(catchment_name)
+
+      Retrieves cultivated land data for a specific catchment, identified by its name.
+
+      :param catchment_name: The name of the catchment for which cultivated land data is requested.
+      :type catchment_name: str
+
+      :returns: A DataFrame containing cultivated land data for the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_peat_data()
+
+      Retrieves peatland data for all catchments from the database.
+
+      :returns: A DataFrame containing peatland data for all catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_peat_data_by_catchment_name(catchment_name)
+
+      Retrieves peatland data for a specific catchment, identified by its name.
+
+      :param catchment_name: The name of the catchment for which peatland data is requested.
+      :type catchment_name: str
+
+      :returns: A DataFrame containing peatland data for the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_lucas_data()
+
+      Retrieves LUCAS (Land Use and Coverage Area frame Survey) data for all catchments from the database.
+
+      :returns: A DataFrame containing LUCAS data for all catchments.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_lucas_data_by_catchment_name(catchment_name)
+
+      Retrieves LUCAS data for a specific catchment, identified by its name.
+
+      :param catchment_name: The name of the catchment for which LUCAS data is requested.
+      :type catchment_name: str
+
+      :returns: A DataFrame containing LUCAS data for the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_grass_in_use()
+
+      Retrieves data for grasslands in use across all catchments from the database.
+
+      :returns: A DataFrame containing data for grasslands currently in use.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_formatted_catchment_grass_in_use()
+
+      Retrieves and formats data for grasslands in use, organizing it by catchment, cover type, and soil type.
+
+      :returns: A DataFrame containing organized and formatted data for grasslands in use.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_grass_data_by_catchment_name(catchment_name)
+
+      Retrieves and formats grassland data for a specific catchment, identified by its name, focusing on grasslands currently in use.
+
+      :param catchment_name: The name of the catchment for which grassland data
+      :type catchment_name: str
+
+      :returns: A DataFrame containing formatted data for grasslands in use in the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+

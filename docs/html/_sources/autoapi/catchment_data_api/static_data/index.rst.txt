@@ -1,0 +1,110 @@
+:py:mod:`catchment_data_api.static_data`
+========================================
+
+.. py:module:: catchment_data_api.static_data
+
+.. autoapi-nested-parse::
+
+   Static Data Module
+   ------------------
+
+   This module contains the StaticData class, which is responsible for managing and accessing static configuration data used in catchment analysis.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   catchment_data_api.static_data.StaticData
+
+
+
+
+.. py:class:: StaticData
+
+
+   A class for managing and accessing static configuration data used in catchment analysis.
+
+   This class loads configuration data from a YAML file, including information such as
+   baseline year, herd relation configurations, ewe split ratios, and ewe proportions
+   for catchment data analysis.
+
+   .. attribute:: catchment_config
+
+      A dictionary containing all the configuration data loaded from the YAML file.
+
+      :type: dict
+
+   .. attribute:: baseline_year
+
+      The baseline year for data analysis.
+
+      :type: int
+
+   .. attribute:: herd_relation_dict
+
+      A dictionary describing the relationships between different herd types.
+
+      :type: dict
+
+   .. attribute:: ewe_split_dict
+
+      A dictionary containing the split ratios for upland and lowland ewes.
+
+      :type: dict
+
+   .. attribute:: ewe_proportion
+
+      The global proportion of ewes in the sheep population.
+
+      :type: float
+
+   .. py:method:: get_config_data(config_file)
+
+      Load and return the configuration data from the specified file.
+
+      :param config_file: The path to the configuration file.
+      :type config_file: str
+
+      :returns: The configuration data loaded from the file.
+      :rtype: dict
+
+
+   .. py:method:: get_baseline_year()
+
+      Retrieves the baseline year.
+
+      :returns: The baseline year.
+      :rtype: int
+
+
+   .. py:method:: get_herd_relation_dict()
+
+      Retrieves the herd relation dictionary.
+
+      :returns: The herd relation dictionary.
+      :rtype: dict
+
+
+   .. py:method:: get_ewe_split_dict()
+
+      Retrieves the ewe split dictionary.
+
+      :returns: The ewe split dictionary.
+      :rtype: dict
+
+
+   .. py:method:: get_global_ewe_prop()
+
+      Retrieves the ewe proportion dict.
+
+      :returns: The ewe proportion dictionary.
+      :rtype: dict
+
+
+
