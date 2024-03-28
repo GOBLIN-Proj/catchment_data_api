@@ -1,3 +1,9 @@
+"""
+Cohorts module
+----------------
+
+This module contains the Cohorts class, which is used to manage and calculate livestock cohort populations within a specified catchment area.
+"""
 import numpy as np
 import pandas as pd
 from catchment_data_api.catchment_data_api import CatchmentDataAPI
@@ -5,6 +11,19 @@ from catchment_data_api.static_data import StaticData
 
 
 class Cohorts:
+    """
+    A class to manage and calculate livestock cohort populations within a specified catchment area.
+
+    Attributes:
+        api (CatchmentDataAPI): An instance of the CatchmentDataAPI to interact with catchment data.
+        static_data (StaticData): An instance of StaticData to access static reference data.
+        baseline_year (int): The baseline year for the cohort data.
+        national_herd_raw (pandas.DataFrame): Raw national herd data.
+        catchment_herd_raw (pandas.DataFrame): Raw herd data for the specified catchment.
+        herd_relation_dict (dict): A dictionary defining relationships between different herd cohorts.
+        cohorts (dict): A dictionary of cohorts with their populations.
+        coef (dict): A dictionary of cohort coefficients used for population computations.
+    """
     def __init__(self, catchment_name):
         self.api = CatchmentDataAPI()
         self.static_data = StaticData()
@@ -18,9 +37,11 @@ class Cohorts:
 
     def get_cohorts(self):
         """
-        Produced a dictionary of cohorts, with their populations as values
-        """
+        Produces a dictionary of cohorts, with their populations as values, based on the national herd data.
 
+        Returns:
+            dict: A dictionary with cohort names as keys and their populations as values.
+        """
         cohorts = {}
 
         for index, row in self.national_herd_raw.loc[:, str(self.baseline_year)].items():
@@ -36,10 +57,12 @@ class Cohorts:
 
     def compute_coef_cohort_population(self):
         """
-        sums the beef and dairy adult population, and sheep. The individual cohorts are divided
-        by the result to give the cohort coef.
-        """
+        Computes the coefficients for each cohort by dividing the individual cohort's population
+        by the sum of the populations of related cohorts.
 
+        Returns:
+            dict: A dictionary with cohort names as keys and their coefficients as values.
+        """
         coef = {}
         for animal_type in ["Cattle", "Sheep"]:
             herd_dict = self.herd_relation_dict[animal_type]
@@ -54,7 +77,14 @@ class Cohorts:
     
 
     def compute_cohort_population_in_catchment(self):
+        """
+        Computes the population of each cohort within the specified catchment area. This method
+        calculates the population for both cattle and sheep cohorts based on the catchment's raw herd data
+        and the computed cohort coefficients.
 
+        Returns:
+            pandas.DataFrame: A DataFrame containing the computed populations of each cohort for the specified catchment.
+        """
         cattle_list = ["dairy_cows", "suckler_cows"] + list(self.herd_relation_dict["Cattle"].keys())
         sheep_list = ["Upland ewes", "Lowland ewes"] + list(self.herd_relation_dict["Sheep"].keys())
 

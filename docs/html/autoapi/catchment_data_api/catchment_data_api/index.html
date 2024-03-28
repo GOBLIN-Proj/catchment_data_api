@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>catchment_data_api.catchment_data_api &mdash; catchment_data_api  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="catchment_data_api.cohorts" href="../cohorts/index.html" />
+    <link rel="prev" title="catchment_data_api.database" href="../database/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            catchment_data_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api.catchment_data_api</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cohorts/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api.cohorts</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../crops/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api.crops</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../database_manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api.database_manager</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../static_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api.static_data</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">catchment_data_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api</span></code></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api.catchment_data_api</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/catchment_data_api/catchment_data_api/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-catchment_data_api.catchment_data_api">
+<span id="catchment-data-api-catchment-data-api"></span><h1><a class="reference internal" href="#module-catchment_data_api.catchment_data_api" title="catchment_data_api.catchment_data_api"><code class="xref py py-mod docutils literal notranslate"><span class="pre">catchment_data_api.catchment_data_api</span></code></a><a class="headerlink" href="#module-catchment_data_api.catchment_data_api" title="Link to this heading"></a></h1>
+<section id="catchment-data-api">
+<p>A Python package for interfacing with various catchment-related data. This includes accessing, formatting,
+and aggregating data related to livestock, forests, cultivated areas, peat, and LUCAS survey data within different catchment areas.</p>
+<p>This module provides a class, CatchmentDataAPI, that acts as an interface to the catchment data.
+It allows users to retrieve data for livestock, forests, cultivated areas, peat, and LUCAS survey data for all catchments
+or for a specific catchment.</p>
+<p>The class also provides methods to calculate the total population of livestock by type for a specified catchment
+and to format catchment names for consistency.</p>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI" title="catchment_data_api.catchment_data_api.CatchmentDataAPI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CatchmentDataAPI</span></code></a></p></td>
+<td><p>A class to interface with various catchment-related data. This includes</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">catchment_data_api.catchment_data_api.</span></span><span class="sig-name descname"><span class="pre">CatchmentDataAPI</span></span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI" title="Link to this definition"></a></dt>
+<dd><p>A class to interface with various catchment-related data. This includes
+accessing, formatting, and aggregating data related to livestock, forests,
+cultivated areas, peat, and LUCAS survey data within different catchment areas.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.data_manager">
+<span class="sig-name descname"><span class="pre">data_manager</span></span><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.data_manager" title="Link to this definition"></a></dt>
+<dd><p>An instance of DataManager for database operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../database_manager/index.html#catchment_data_api.database_manager.DataManager" title="catchment_data_api.database_manager.DataManager">DataManager</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.static_data">
+<span class="sig-name descname"><span class="pre">static_data</span></span><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.static_data" title="Link to this definition"></a></dt>
+<dd><p>An instance of StaticData for accessing static, reference data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../static_data/index.html#catchment_data_api.static_data.StaticData" title="catchment_data_api.static_data.StaticData">StaticData</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.known_catchments">
+<span class="sig-name descname"><span class="pre">known_catchments</span></span><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.known_catchments" title="Link to this definition"></a></dt>
+<dd><p>A list of known catchment names retrieved from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.normalize_text">
+<span class="sig-name descname"><span class="pre">normalize_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.normalize_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.normalize_text" title="Link to this definition"></a></dt>
+<dd><p>Normalizes a given text string by converting to lowercase, removing special characters,
+and replacing ‘&amp;’ with ‘and’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – The text to normalize.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The normalized text.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.format_catchment_name">
+<span class="sig-name descname"><span class="pre">format_catchment_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catchment_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.format_catchment_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.format_catchment_name" title="Link to this definition"></a></dt>
+<dd><p>Formats a catchment name by finding the best match among known catchments based on
+the overlap of words after normalization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>catchment_name</strong> (<em>str</em>) – The catchment name to format.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The best matching catchment name or the original name if no match is found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_names">
+<span class="sig-name descname"><span class="pre">get_catchment_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_names" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a list of unique catchment names from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An array of unique catchment names.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_national_herd_raw">
+<span class="sig-name descname"><span class="pre">get_national_herd_raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_national_herd_raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_national_herd_raw" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the raw national herd data from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing the raw national herd data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_livestock_data">
+<span class="sig-name descname"><span class="pre">get_catchment_livestock_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_livestock_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_livestock_data" title="Link to this definition"></a></dt>
+<dd><p>Retrieves livestock data for all catchments from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing livestock data for all catchments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_livestock_data_by_catchment_name">
+<span class="sig-name descname"><span class="pre">get_catchment_livestock_data_by_catchment_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catchment_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_livestock_data_by_catchment_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_livestock_data_by_catchment_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves livestock data for a specific catchment, identified by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>catchment_name</strong> (<em>str</em>) – The name of the catchment for which livestock data is requested.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing livestock data for the specified catchment.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_livestock_total_pop_by_catchment_name">
+<span class="sig-name descname"><span class="pre">get_catchment_livestock_total_pop_by_catchment_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catchment_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_livestock_total_pop_by_catchment_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_livestock_total_pop_by_catchment_name" title="Link to this definition"></a></dt>
+<dd><p>Calculates the total population of livestock by type for a specified catchment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>catchment_name</strong> (<em>str</em>) – The name of the catchment for which total livestock population is requested.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame with the total population of different livestock types in the specified catchment.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_forest_data">
+<span class="sig-name descname"><span class="pre">get_catchment_forest_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_forest_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_forest_data" title="Link to this definition"></a></dt>
+<dd><p>Retrieves forest data for all catchments from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing forest data for all catchments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_forest_data_by_catchment_name">
+<span class="sig-name descname"><span class="pre">get_catchment_forest_data_by_catchment_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catchment_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_forest_data_by_catchment_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_forest_data_by_catchment_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves forest data for a specific catchment, identified by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>catchment_name</strong> (<em>str</em>) – The name of the catchment for which forest data is requested.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing forest data for the specified catchment.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_grass_data">
+<span class="sig-name descname"><span class="pre">get_catchment_grass_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_grass_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_grass_data" title="Link to this definition"></a></dt>
+<dd><p>Retrieves grassland data for all catchments from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing grassland data for all catchments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_cultivated_data">
+<span class="sig-name descname"><span class="pre">get_catchment_cultivated_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_cultivated_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_cultivated_data" title="Link to this definition"></a></dt>
+<dd><p>Retrieves cultivated land data for all catchments from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing cultivated land data for all catchments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_cultivated_data_by_catchment_name">
+<span class="sig-name descname"><span class="pre">get_catchment_cultivated_data_by_catchment_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catchment_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_cultivated_data_by_catchment_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_cultivated_data_by_catchment_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves cultivated land data for a specific catchment, identified by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>catchment_name</strong> (<em>str</em>) – The name of the catchment for which cultivated land data is requested.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing cultivated land data for the specified catchment.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_peat_data">
+<span class="sig-name descname"><span class="pre">get_catchment_peat_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_peat_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_peat_data" title="Link to this definition"></a></dt>
+<dd><p>Retrieves peatland data for all catchments from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing peatland data for all catchments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_peat_data_by_catchment_name">
+<span class="sig-name descname"><span class="pre">get_catchment_peat_data_by_catchment_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catchment_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_peat_data_by_catchment_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_peat_data_by_catchment_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves peatland data for a specific catchment, identified by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>catchment_name</strong> (<em>str</em>) – The name of the catchment for which peatland data is requested.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing peatland data for the specified catchment.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_lucas_data">
+<span class="sig-name descname"><span class="pre">get_catchment_lucas_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_lucas_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_lucas_data" title="Link to this definition"></a></dt>
+<dd><p>Retrieves LUCAS (Land Use and Coverage Area frame Survey) data for all catchments from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing LUCAS data for all catchments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_lucas_data_by_catchment_name">
+<span class="sig-name descname"><span class="pre">get_catchment_lucas_data_by_catchment_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catchment_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_lucas_data_by_catchment_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_lucas_data_by_catchment_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves LUCAS data for a specific catchment, identified by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>catchment_name</strong> (<em>str</em>) – The name of the catchment for which LUCAS data is requested.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing LUCAS data for the specified catchment.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_grass_in_use">
+<span class="sig-name descname"><span class="pre">get_catchment_grass_in_use</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_grass_in_use"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_grass_in_use" title="Link to this definition"></a></dt>
+<dd><p>Retrieves data for grasslands in use across all catchments from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing data for grasslands currently in use.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_formatted_catchment_grass_in_use">
+<span class="sig-name descname"><span class="pre">get_formatted_catchment_grass_in_use</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_formatted_catchment_grass_in_use"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_formatted_catchment_grass_in_use" title="Link to this definition"></a></dt>
+<dd><p>Retrieves and formats data for grasslands in use, organizing it by catchment, cover type, and soil type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A DataFrame containing organized and formatted data for grasslands in use.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_grass_data_by_catchment_name">
+<span class="sig-name descname"><span class="pre">get_catchment_grass_data_by_catchment_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catchment_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/catchment_data_api/catchment_data_api.html#CatchmentDataAPI.get_catchment_grass_data_by_catchment_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_grass_data_by_catchment_name" title="Link to this definition"></a></dt>
+<dd><p>Retrieves and formats grassland data for a specific catchment, identified by its name, focusing on grasslands currently in use.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>catchment_name</strong> (<em>str</em>) – The name of the catchment for which grassland data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A DataFrame containing formatted data for grasslands in use in the specified catchment.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../database/index.html" class="btn btn-neutral float-left" title="catchment_data_api.database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../cohorts/index.html" class="btn btn-neutral float-right" title="catchment_data_api.cohorts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Colm Duffy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

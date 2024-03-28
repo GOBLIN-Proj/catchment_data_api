@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>catchment_data_api.cohorts &mdash; catchment_data_api  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            catchment_data_api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conduct.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">catchment_data_api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">catchment_data_api.cohorts</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for catchment_data_api.cohorts</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Cohorts module</span>
+<span class="sd">----------------</span>
+
+<span class="sd">This module contains the Cohorts class, which is used to manage and calculate livestock cohort populations within a specified catchment area.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">catchment_data_api.catchment_data_api</span> <span class="kn">import</span> <span class="n">CatchmentDataAPI</span>
+<span class="kn">from</span> <span class="nn">catchment_data_api.static_data</span> <span class="kn">import</span> <span class="n">StaticData</span>
+
+
+<div class="viewcode-block" id="Cohorts">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/cohorts/index.html#catchment_data_api.cohorts.Cohorts">[docs]</a>
+<span class="k">class</span> <span class="nc">Cohorts</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to manage and calculate livestock cohort populations within a specified catchment area.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        api (CatchmentDataAPI): An instance of the CatchmentDataAPI to interact with catchment data.</span>
+<span class="sd">        static_data (StaticData): An instance of StaticData to access static reference data.</span>
+<span class="sd">        baseline_year (int): The baseline year for the cohort data.</span>
+<span class="sd">        national_herd_raw (pandas.DataFrame): Raw national herd data.</span>
+<span class="sd">        catchment_herd_raw (pandas.DataFrame): Raw herd data for the specified catchment.</span>
+<span class="sd">        herd_relation_dict (dict): A dictionary defining relationships between different herd cohorts.</span>
+<span class="sd">        cohorts (dict): A dictionary of cohorts with their populations.</span>
+<span class="sd">        coef (dict): A dictionary of cohort coefficients used for population computations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">catchment_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span class="n">CatchmentDataAPI</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">static_data</span> <span class="o">=</span> <span class="n">StaticData</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseline_year</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_data</span><span class="o">.</span><span class="n">get_baseline_year</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">national_herd_raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get_national_herd_raw</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">catchment_herd_raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get_catchment_livestock_total_pop_by_catchment_name</span><span class="p">(</span><span class="n">catchment_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">herd_relation_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">static_data</span><span class="o">.</span><span class="n">get_herd_relation_dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cohorts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_cohorts</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coef</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_coef_cohort_population</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Cohorts.get_cohorts">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/cohorts/index.html#catchment_data_api.cohorts.Cohorts.get_cohorts">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_cohorts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Produces a dictionary of cohorts, with their populations as values, based on the national herd data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: A dictionary with cohort names as keys and their populations as values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cohorts</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">national_herd_raw</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">baseline_year</span><span class="p">)]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="k">if</span> <span class="n">index</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cohorts</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">cohorts</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cohorts</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="n">row</span>
+
+        <span class="k">return</span> <span class="n">cohorts</span></div>
+
+
+
+<div class="viewcode-block" id="Cohorts.compute_coef_cohort_population">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/cohorts/index.html#catchment_data_api.cohorts.Cohorts.compute_coef_cohort_population">[docs]</a>
+    <span class="k">def</span> <span class="nf">compute_coef_cohort_population</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the coefficients for each cohort by dividing the individual cohort&#39;s population</span>
+<span class="sd">        by the sum of the populations of related cohorts.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: A dictionary with cohort names as keys and their coefficients as values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">coef</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">animal_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Cattle&quot;</span><span class="p">,</span> <span class="s2">&quot;Sheep&quot;</span><span class="p">]:</span>
+            <span class="n">herd_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">herd_relation_dict</span><span class="p">[</span><span class="n">animal_type</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">cohort_index</span> <span class="ow">in</span> <span class="n">herd_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+
+                <span class="n">coef</span><span class="p">[</span><span class="n">cohort_index</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cohorts</span><span class="p">[</span><span class="n">cohort_index</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                    <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cohorts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">herd_dict</span><span class="p">[</span><span class="n">cohort_index</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">coef</span></div>
+
+    
+
+<div class="viewcode-block" id="Cohorts.compute_cohort_population_in_catchment">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/cohorts/index.html#catchment_data_api.cohorts.Cohorts.compute_cohort_population_in_catchment">[docs]</a>
+    <span class="k">def</span> <span class="nf">compute_cohort_population_in_catchment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the population of each cohort within the specified catchment area. This method</span>
+<span class="sd">        calculates the population for both cattle and sheep cohorts based on the catchment&#39;s raw herd data</span>
+<span class="sd">        and the computed cohort coefficients.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: A DataFrame containing the computed populations of each cohort for the specified catchment.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cattle_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dairy_cows&quot;</span><span class="p">,</span> <span class="s2">&quot;suckler_cows&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">herd_relation_dict</span><span class="p">[</span><span class="s2">&quot;Cattle&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">sheep_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Upland ewes&quot;</span><span class="p">,</span> <span class="s2">&quot;Lowland ewes&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">herd_relation_dict</span><span class="p">[</span><span class="s2">&quot;Sheep&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="n">_catchment_herd_cattle</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">baseline_year</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">cattle_list</span>
+        <span class="p">)</span>
+        <span class="n">_catchment_herd_sheep</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">baseline_year</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">sheep_list</span>
+        <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">animal_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Cattle&quot;</span><span class="p">,</span> <span class="s2">&quot;Sheep&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">animal_type</span> <span class="o">==</span> <span class="s2">&quot;Cattle&quot;</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">cohort</span> <span class="ow">in</span> <span class="n">cattle_list</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">cohort</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">herd_relation_dict</span><span class="p">[</span><span class="n">animal_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+
+                        <span class="n">_catchment_herd_cattle</span><span class="p">[</span><span class="n">cohort</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                            <span class="p">[</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">coef</span><span class="p">[</span><span class="n">cohort</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">catchment_herd_raw</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">herd_relation_dict</span><span class="p">[</span><span class="n">animal_type</span><span class="p">][</span><span class="n">cohort</span><span class="p">]</span>
+                            <span class="p">],</span>
+                            <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                        <span class="p">)</span>
+
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">_catchment_herd_cattle</span><span class="p">[</span>
+                            <span class="n">cohort</span>
+                        <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">catchment_herd_raw</span><span class="p">[</span><span class="n">cohort</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="k">elif</span> <span class="n">animal_type</span> <span class="o">==</span> <span class="s2">&quot;Sheep&quot;</span><span class="p">:</span>
+
+                <span class="k">for</span> <span class="n">cohort</span> <span class="ow">in</span> <span class="n">sheep_list</span><span class="p">:</span>
+
+                    <span class="k">if</span> <span class="n">cohort</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">herd_relation_dict</span><span class="p">[</span><span class="n">animal_type</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+
+                        <span class="n">_catchment_herd_sheep</span><span class="p">[</span><span class="n">cohort</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                            <span class="p">[</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">coef</span><span class="p">[</span><span class="n">cohort</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">catchment_herd_raw</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">herd_relation_dict</span><span class="p">[</span><span class="n">animal_type</span><span class="p">][</span><span class="n">cohort</span><span class="p">]</span>
+                            <span class="p">],</span>
+                            <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                        <span class="p">)</span>
+
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">_catchment_herd_sheep</span><span class="p">[</span>
+                            <span class="n">cohort</span>
+                        <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">catchment_herd_raw</span><span class="p">[</span><span class="n">cohort</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">_catchment_herd_cattle</span><span class="p">,</span> <span class="n">_catchment_herd_sheep</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
+</div>
+
+
+        
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Colm Duffy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

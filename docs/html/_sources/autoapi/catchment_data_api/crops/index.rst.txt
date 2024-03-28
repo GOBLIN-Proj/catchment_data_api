@@ -1,0 +1,69 @@
+:py:mod:`catchment_data_api.crops`
+==================================
+
+.. py:module:: catchment_data_api.crops
+
+.. autoapi-nested-parse::
+
+   Crops Module
+   ------------
+
+   This module contains the Crops class, which is responsible for managing and calculating crop data.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   catchment_data_api.crops.Crops
+
+
+
+
+.. py:class:: Crops
+
+
+   A class to manage and calculate crop data within a specified catchment area.
+
+   This class utilizes LUCAS (Land Use and Coverage Area frame Survey) data and
+   cultivated land data to derive the area of different crops within a catchment.
+
+   .. attribute:: api
+
+      An instance of the CatchmentDataAPI for accessing catchment data.
+
+      :type: CatchmentDataAPI
+
+   .. py:method:: _derive_crops(catchment)
+
+      Derives crop data for a specified catchment based on LUCAS data and cultivated land data.
+      This method calculates the total area for each crop type within the catchment by utilizing
+      the proportion of each crop type from LUCAS data and the total cultivated land area.
+
+      :param catchment: The name of the catchment area.
+      :type catchment: str
+
+      :returns: A DataFrame containing the derived crop data for the catchment, including
+                the catchment name, crop types, and their respective areas in hectares.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_crops(catchment)
+
+      Public method to retrieve the derived crop data for a specified catchment.
+      This method serves as an interface to access the calculated crop areas
+      and types within the catchment.
+
+      :param catchment: The name of the catchment area.
+      :type catchment: str
+
+      :returns: A DataFrame containing the derived crop data for the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+

@@ -1,0 +1,108 @@
+:py:mod:`catchment_data_api.cohorts`
+====================================
+
+.. py:module:: catchment_data_api.cohorts
+
+.. autoapi-nested-parse::
+
+   Cohorts module
+   ----------------
+
+   This module contains the Cohorts class, which is used to manage and calculate livestock cohort populations within a specified catchment area.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   catchment_data_api.cohorts.Cohorts
+
+
+
+
+.. py:class:: Cohorts(catchment_name)
+
+
+   A class to manage and calculate livestock cohort populations within a specified catchment area.
+
+   .. attribute:: api
+
+      An instance of the CatchmentDataAPI to interact with catchment data.
+
+      :type: CatchmentDataAPI
+
+   .. attribute:: static_data
+
+      An instance of StaticData to access static reference data.
+
+      :type: StaticData
+
+   .. attribute:: baseline_year
+
+      The baseline year for the cohort data.
+
+      :type: int
+
+   .. attribute:: national_herd_raw
+
+      Raw national herd data.
+
+      :type: pandas.DataFrame
+
+   .. attribute:: catchment_herd_raw
+
+      Raw herd data for the specified catchment.
+
+      :type: pandas.DataFrame
+
+   .. attribute:: herd_relation_dict
+
+      A dictionary defining relationships between different herd cohorts.
+
+      :type: dict
+
+   .. attribute:: cohorts
+
+      A dictionary of cohorts with their populations.
+
+      :type: dict
+
+   .. attribute:: coef
+
+      A dictionary of cohort coefficients used for population computations.
+
+      :type: dict
+
+   .. py:method:: get_cohorts()
+
+      Produces a dictionary of cohorts, with their populations as values, based on the national herd data.
+
+      :returns: A dictionary with cohort names as keys and their populations as values.
+      :rtype: dict
+
+
+   .. py:method:: compute_coef_cohort_population()
+
+      Computes the coefficients for each cohort by dividing the individual cohort's population
+      by the sum of the populations of related cohorts.
+
+      :returns: A dictionary with cohort names as keys and their coefficients as values.
+      :rtype: dict
+
+
+   .. py:method:: compute_cohort_population_in_catchment()
+
+      Computes the population of each cohort within the specified catchment area. This method
+      calculates the population for both cattle and sheep cohorts based on the catchment's raw herd data
+      and the computed cohort coefficients.
+
+      :returns: A DataFrame containing the computed populations of each cohort for the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+
