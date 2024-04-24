@@ -8,9 +8,18 @@ API for retrieval of catchment data for land cover and livestock. The package us
 
 ## Installation
 
+Install from github 
+
 ```bash
 pip install "cathment_data_api@git+https://github.com/GOBLIN-Proj/catchment_data_api.git@main" 
 ```
+
+Install from PyPI
+
+```bash
+pip install catchment_data_api
+```
+
 
 ## Usage
 
