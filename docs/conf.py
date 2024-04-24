@@ -9,6 +9,7 @@
 project = u"catchment_data_api"
 copyright = u"2024, Colm Duffy"
 author = u"Colm Duffy"
+release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
 
