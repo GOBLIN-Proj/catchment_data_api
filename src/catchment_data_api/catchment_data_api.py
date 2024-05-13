@@ -47,6 +47,7 @@ class CatchmentDataAPI:
         text = text.lower()
         text = re.sub(r'\W+', ' ', text)
         text = text.replace(' & ', ' and ')
+
         return text
 
 
@@ -62,6 +63,7 @@ class CatchmentDataAPI:
             str: The best matching catchment name or the original name if no match is found.
         """
         normalized_input = self.normalize_text(catchment_name)
+
         input_words = set(normalized_input.split())
 
         best_match = None
@@ -89,6 +91,7 @@ class CatchmentDataAPI:
         """
         df = self.data_manager.get_catchment_livestock_data()
         catchment_names = df['Catchment'].unique()
+
         return catchment_names
     
 

@@ -6,8 +6,7 @@
 :hidden:
 
 INSTALLATION.md
-changelog.md
-contributing.md
-conduct.md
 autoapi/index
+CHANGELOG.md
+CONTRIBUTING.md
 ```

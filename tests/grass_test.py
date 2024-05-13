@@ -15,7 +15,7 @@ def main():
 
     print(df2.head(50))
 
-    df3 = api.get_catchment_grass_data_by_catchment_name("blackwater")
+    df3 = api.get_catchment_grass_data_by_catchment_name("Ballyteigue-Bannow")
 
     print(df3)
 
