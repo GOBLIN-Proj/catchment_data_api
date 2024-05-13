@@ -4,15 +4,10 @@ from catchment_data_api.crops import Crops
 def main():
     api = catchment_data_api.CatchmentDataAPI()
 
-    df = api.get_catchment_lucas_data_by_catchment_name("blackwater")
+    df = api.get_catchment_peat_data_by_catchment_name("Cork Harbour")
 
     print(df)
 
-    crops = Crops()
-
-    df1 = crops._derive_crops("blackwater")
-
-    print(df1)
 
 if __name__ == "__main__":
     main()
