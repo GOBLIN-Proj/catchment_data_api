@@ -36,3 +36,5 @@ ewe_split_dict:
   Upland ewes: 0.2
 
 ewe_proportion: 0.505296592043949
+
+default_crop: "Rapeseed and turnip rapeseed"

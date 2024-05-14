@@ -29,6 +29,7 @@ class StaticData:
         self.herd_relation_dict = self.catchment_config.get("herd_relation_dict", {})
         self.ewe_split_dict = self.catchment_config.get("ewe_split_dict", {})
         self.ewe_proportion = self.catchment_config.get("ewe_proportion", {})
+        self.default_crop = self.catchment_config.get("default_crop", {})
 
 
     def get_config_data(self, config_file):
@@ -83,3 +84,12 @@ class StaticData:
             dict: The ewe proportion dictionary.
         """
         return self.ewe_proportion
+    
+    def get_default_crop(self):
+        """
+        Retrieves the default crop.
+
+        Returns:
+            dict: The default crop.
+        """
+        return self.default_crop
