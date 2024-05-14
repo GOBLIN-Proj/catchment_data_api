@@ -107,4 +107,12 @@ Classes
       :rtype: dict
 
 
+   .. py:method:: get_default_crop()
+
+      Retrieves the default crop.
+
+      :returns: The default crop.
+      :rtype: dict
+
+
 
