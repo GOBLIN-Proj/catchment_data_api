@@ -8,6 +8,10 @@ def main():
 
     print(df)
 
+    df1 = api.get_catchment_msa_data_by_catchment_name("Cork Harbour")
+
+    print(f"MSA data for Cork Harbour: {df1}")
+
 
 if __name__ == "__main__":
     main()

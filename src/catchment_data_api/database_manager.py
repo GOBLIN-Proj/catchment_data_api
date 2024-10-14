@@ -154,3 +154,18 @@ class DataManager:
         )
 
         return dataframe
+    
+    def get_catchment_msa_data(self):
+        """
+        Retrieves Mean Species Abundance (MSA) data for catchments from the database.
+
+        Returns:
+            pandas.DataFrame: A DataFrame containing MSA survey data for various catchments.
+        """        
+        table = "biodiversity_database_table"
+        dataframe = pd.read_sql(
+            "SELECT * FROM '%s'" % (table),
+            self.engine,
+        )
+
+        return dataframe

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>catchment_data_api.catchment_data_api &mdash; catchment_data_api 0.1.2 documentation</title>
+  <title>catchment_data_api.catchment_data_api &mdash; catchment_data_api 0.1.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -16,7 +16,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=92734c54"></script>
+        <script src="../../_static/documentation_options.js?v=360bc84d"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -431,6 +431,7 @@
         <span class="k">return</span> <span class="n">catchment_data</span></div>
 
 
+
 <div class="viewcode-block" id="CatchmentDataAPI.get_catchment_grass_in_use">
 <a class="viewcode-back" href="../../autoapi/catchment_data_api/catchment_data_api/index.html#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_grass_in_use">[docs]</a>
     <span class="k">def</span> <span class="nf">get_catchment_grass_in_use</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -508,6 +509,43 @@
         <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_formatted_catchment_grass_in_use</span><span class="p">()</span>
 
         <span class="n">catchment_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;catchment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">catchment</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">catchment_data</span></div>
+
+    
+
+<div class="viewcode-block" id="CatchmentDataAPI.get_catchment_msa_data_by_catchment_name">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/catchment_data_api/index.html#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_msa_data_by_catchment_name">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_catchment_msa_data_by_catchment_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">catchment_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves Mean Species Abundance (MSA) data for a specific catchment, identified by its name.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            catchment_name (str): The name of the catchment for which MSA data is requested.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: A DataFrame containing MSA data for the specified catchment.</span>
+<span class="sd">        &quot;&quot;&quot;</span>                                
+        <span class="n">catchment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_catchment_name</span><span class="p">(</span><span class="n">catchment_name</span><span class="p">)</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_manager</span><span class="o">.</span><span class="n">get_catchment_msa_data</span><span class="p">()</span>
+
+        <span class="n">catchment_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;catchment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">catchment</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">catchment_data</span></div>
+
+    
+    
+<div class="viewcode-block" id="CatchmentDataAPI.get_catchment_msa_data">
+<a class="viewcode-back" href="../../autoapi/catchment_data_api/catchment_data_api/index.html#catchment_data_api.catchment_data_api.CatchmentDataAPI.get_catchment_msa_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_catchment_msa_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves Mean Species Abundance (MSA) data.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            pandas.DataFrame: A DataFrame containing MSA data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>                               
+        <span class="n">catchment_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_manager</span><span class="o">.</span><span class="n">get_catchment_msa_data</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">catchment_data</span></div>
 </div>

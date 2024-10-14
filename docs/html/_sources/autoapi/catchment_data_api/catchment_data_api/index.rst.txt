@@ -238,4 +238,23 @@ Classes
       :rtype: pandas.DataFrame
 
 
+   .. py:method:: get_catchment_msa_data_by_catchment_name(catchment_name)
+
+      Retrieves Mean Species Abundance (MSA) data for a specific catchment, identified by its name.
+
+      :param catchment_name: The name of the catchment for which MSA data is requested.
+      :type catchment_name: str
+
+      :returns: A DataFrame containing MSA data for the specified catchment.
+      :rtype: pandas.DataFrame
+
+
+   .. py:method:: get_catchment_msa_data()
+
+      Retrieves Mean Species Abundance (MSA) data.
+
+      :returns: A DataFrame containing MSA data.
+      :rtype: pandas.DataFrame
+
+
 
