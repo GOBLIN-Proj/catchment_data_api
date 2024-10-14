@@ -109,6 +109,15 @@ class TestGenerateScenarioDataFrame(unittest.TestCase):
 
             # Check if the file was created as expected
             self.assertTrue(os.path.exists(expected_file_path), f"File {expected_file_name} was not created in temporary directory.")
+
+            #Define the path to the test data
+            expected_file_name = "catchment_msa_by_name.csv"
+            expected_file_path = os.path.join(tmp_dir, expected_file_name)
+
+            api.get_catchment_msa_data_by_catchment_name("blackwater").to_csv(expected_file_path)
+
+            # Check if the file was created as expected
+            self.assertTrue(os.path.exists(expected_file_path), f"File {expected_file_name} was not created in temporary directory.")
                                                  
 
 # Running the tests

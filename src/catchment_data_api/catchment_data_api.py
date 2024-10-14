@@ -304,6 +304,7 @@ class CatchmentDataAPI:
 
         return catchment_data
 
+
     def get_catchment_grass_in_use(self):
         """
         Retrieves data for grasslands in use across all catchments from the database.
@@ -373,5 +374,36 @@ class CatchmentDataAPI:
         df = self.get_formatted_catchment_grass_in_use()
 
         catchment_data = df[df['catchment'] == catchment]
+
+        return catchment_data
+    
+
+    def get_catchment_msa_data_by_catchment_name(self, catchment_name):
+        """
+        Retrieves Mean Species Abundance (MSA) data for a specific catchment, identified by its name.
+        
+        Parameters:
+            catchment_name (str): The name of the catchment for which MSA data is requested.
+        
+        Returns:
+            pandas.DataFrame: A DataFrame containing MSA data for the specified catchment.
+        """                                
+        catchment = self.format_catchment_name(catchment_name)
+
+        df = self.data_manager.get_catchment_msa_data()
+
+        catchment_data = df[df['catchment'] == catchment]
+
+        return catchment_data
+    
+    
+    def get_catchment_msa_data(self):
+        """
+        Retrieves Mean Species Abundance (MSA) data.
+        
+        Returns:
+            pandas.DataFrame: A DataFrame containing MSA data.
+        """                               
+        catchment_data = self.data_manager.get_catchment_msa_data()
 
         return catchment_data
